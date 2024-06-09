@@ -22,7 +22,7 @@ export const BreakingbadApp = async (element) => {
 
     document.querySelector('#app-title').innerHTML = 'Breakingbad App'
     element.innerText = 'Loading...'  
-    const quote = await fetchQuote();
+    // const quote = await fetchQuote();
     
     const quoteLabel = document.createElement('blockquote');
     const authoLabel = document.createElement('h3');
