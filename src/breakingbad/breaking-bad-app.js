@@ -22,7 +22,7 @@ export const BreakingbadApp = async (element) => {
 
     document.querySelector('#app-title').innerHTML = 'Breakingbad App'
     element.innerText = 'Loading...'  
-    // const quote = await fetchQuote();
+    const quote = await fetchQuote();
 
     const quoteLabel = document.createElement('blockquote');
     const authoLabel = document.createElement('h3');
@@ -30,8 +30,15 @@ export const BreakingbadApp = async (element) => {
 
     nextQuoteButton.innerText = 'Next Quote';
 
-    const renderQuote = () => {
-        
+    const renderQuote = (data) => {
+        quoteLabel.innerHTML = data.quote;
+        authoLabel.innerHTML = data.author;
+        element.replaceChildren ( quoteLabel, authoLabel, nextQuoteButton)
+
     }
+
+    fetchQuote()
+    // .then ((data) => renderQuote (data)) Pero como el argumento data sólo va al argumento de la función, podemos omitirlo:
+        .then(renderQuote);
 
 };
