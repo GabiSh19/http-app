@@ -1,14 +1,15 @@
 //Es un módulo, pero no quiero exportar el state por que no quiero que nadie fuera del store lo pueda manipular.
 
+import { loadUsersByPage } from "../use-cases/load-users-by-page";
+
 const state = {
     currentPage : 0, 
     users: [],
 }
 
 const loadNextPage = async () => {
-    throw new Error('Not implemented')
+    await loadUsersByPage (state.currentPage + 1);
     }   
-    
     
 const loadPreviousPage = async () => {
     throw new Error('Not implemented')
