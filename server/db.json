@@ -449,20 +449,6 @@
       "first_name": "Mcbride",
       "last_name": "Woodward",
       "gender": "male"
-    },
-    {
-      "id": "6607",
-      "isActive": true,
-      "balance": 3333,
-      "firstName": "Gabi",
-      "lastName": "Soto"
-    },
-    {
-      "id": "25b4",
-      "isActive": true,
-      "balance": 133,
-      "firstName": "aaa",
-      "lastName": "sbsb"
     }
   ]
 }

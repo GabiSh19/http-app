@@ -10,10 +10,12 @@ import { User } from "../models/user";
 
 export const loadUsersByPage = async ( page = 1 ) => {
 
-    const url = `${import.meta.env.VITE_BASE_URL}/users?_page=${page}`;
+    const url = `http://localhost:3001/users?_page=1`;
+    // const url = `${import.meta.env.VITE_BASE_URL}/users?_page=${page}`;
     const res = await fetch(url);
     const {data} = await res.json();
-    
+
+
     // const users = data.map(userLike => localhostUserToModel(userLike) ); 
     const users = data.map(localhostUserToModel ); 
     
