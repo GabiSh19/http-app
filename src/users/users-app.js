@@ -20,7 +20,7 @@ export const UsersApp =  async ( element ) => {
     renderButtons ( element );
     renderAddButton ( element );
     renderModal ( element, async ( userLike ) => {
-        const user = await saveUser();
+        const user = await saveUser( userLike );
         usersStore.onUserChanged ( user );
         renderTable();
     } );
