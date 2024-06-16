@@ -69,7 +69,7 @@ export const renderModal = ( element, callback ) => {
         console.log('Formulario enviado');
         
         const formData = new FormData( form );
-        const userLike = {};
+        const userLike = {... loadedUser};
 
         for (const [key, value] of formData){
             
