@@ -80,6 +80,7 @@ export const renderTable = (element) => {
 
         // table.addEventListener('click', event => tableSelectListener(event));
         table.addEventListener('click', tableSelectListener);
+        table.addEventListener('click', tableDeleteListener);
     }
 
 
