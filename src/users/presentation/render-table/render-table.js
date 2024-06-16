@@ -1,7 +1,9 @@
 //Cuidado por que esto se va a cargar de manera global, se va a cargar hasta cuando nuestro componente sea necesario.
 import usersStore from '../../store/users-store';
+import { deleteUserById } from '../../use-cases/delete-user-by-id';
 import { showModal } from '../render-modal/render-modal';
 import './render-table.css';
+
 
 let table;
 
@@ -36,6 +38,30 @@ const createTable = () =>{
         const id = element.getAttribute('data-id');
         console.log(id)
         showModal(id)
+    }
+
+/**
+ * 
+ * @param {MouseEvent} event 
+ */
+    const tableDeleteListener = async( event ) => {
+        // console.log(event.target):
+        const element = event.target.closest('.delete-user');
+        // console.log(element)
+        if ( !element ) return;
+        
+        const id = element.getAttribute('data-id');
+        
+        try {
+            await deleteUserById(id);
+            await usersStore.reloadPage();
+            document.querySelector('#current-page').innerText = usersStore.getCurrentPage();
+            renderTable();
+
+        } catch (error) {
+            console.log(error);
+            alert('No se pudo borrar')
+        }
     }
 
 
